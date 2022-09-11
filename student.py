@@ -1,32 +1,3 @@
-# 1st Approach
-# def main():
-#     name = input("Name: ")
-#     house = input("House: ")
-#     print(f"{name} from {house}")
-#main()
-
-
-
-
-# 2nd Approach
-# def main():
-#     name = get_name()
-#     house = get_house()
-#     print(f"{name} from {house}")
-
-
-# def get_name():
-#     return input("Name: ")
-
-# def get_house():
-#     return input("House: ")
-
-
-# if __name__ == '__main__':
-#     main()
-
-
-
 # Object Oriented Programming
 # 3rd Approach
 class Student(): # By Convention the 1st letter of the name of the class is in uppercase.
@@ -46,6 +17,7 @@ class Student(): # By Convention the 1st letter of the name of the class is in u
         if not name:
             raise ValueError("Missing Name")
         self._name = name
+    
     # Decorators: Functions that modify the behaviour of other functions. 
     @property       # Getter: A getter is a function for some class that gets some value. Using a getter and setter enables python to automatically detect when we are trying to manually set a value.
     def house(self):
