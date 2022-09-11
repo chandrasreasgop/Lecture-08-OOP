@@ -33,16 +33,26 @@ class Student(): # By Convention the 1st letter of the name of the class is in u
     def __init__(self, name, house): # Dunder Init method: A method is just a function inside of a class. 
         if not name:
             raise ValueError("Missing name")
-        if house not in ['Gryffindor','Hufflepuff','Ravenclaw','Slytherin']:
-            raise ValueError("Invalid house")
         self.name = name    # This are instance variables. (Argument)
         self.house = house
     
     def __str__(self):              
         return f"{self.name} from {self.house}"
 
+    # Decorators: Functions that modify the behaviour of other functions. 
+    @property       # Getter: A getter is a function for some class that gets some value. Using a getter and setter enables python to automatically detect when we are trying to manually set a value.
+    def house(self):
+        return self._house
+    
+    @house.setter   # Setter: A setter is a function in some class that sets some value.
+    def house(self, house):
+        if house not in ['Gryffindor','Hufflepuff','Ravenclaw','Slytherin']:
+            raise ValueError("Invalid house")
+        self._house = house
+
 def main():
     student = get_student()
+    # student.house = 'Kolkata'
     print(student)
 
 
