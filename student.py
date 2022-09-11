@@ -30,42 +30,26 @@
 # Object Oriented Programming
 # 3rd Approach
 class Student(): # By Convention the 1st letter of the name of the class is in uppercase.
-    def __init__(self, name, house, patronus): # Dunder Init method: A method is just a function inside of a class. 
+    def __init__(self, name, house): # Dunder Init method: A method is just a function inside of a class. 
         if not name:
             raise ValueError("Missing name")
         if house not in ['Gryffindor','Hufflepuff','Ravenclaw','Slytherin']:
             raise ValueError("Invalid house")
-        self.name = name # This are instance variables. 
+        self.name = name    # This are instance variables. (Argument)
         self.house = house
-        self.patronus = patronus
     
-    def __str__(self):
-        return f"{self.name} from {self.house} has {self.patronus}"
-
-    
-    def charm(self):
-        match self.patronus:
-            case "Stag":
-                return "🐴"
-            case "Otter":
-                return "🦦"
-            case "Jack Russell terrier":
-                return "🐶"
-            case _:
-                return "🪄"
-
+    def __str__(self):              
+        return f"{self.name} from {self.house}"
 
 def main():
     student = get_student()
-    print("Expecto Patronum!")
-    print(student.charm())
+    print(student)
 
 
 def get_student():
     name = input("Name: ")
     house = input("House: ")
-    patronus = input("Patronus: ")
-    return Student(name, house, patronus) # Constructo call: This is the line of code that is going to instantiate a student object using the student class that holds the blueprint of creating student objects.
+    return Student(name, house) # Constructo call: This is the line of code that is going to instantiate a student object using the student class that holds the blueprint of creating student objects.
 
 
 if __name__ == '__main__':
