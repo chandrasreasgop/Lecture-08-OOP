@@ -1,14 +1,18 @@
 # Object Oriented Programming
 # 3rd Approach
 class Student(): # By Convention the 1st letter of the name of the class is in uppercase.
-    def __init__(self, name, house): # Dunder Init method: A method is just a function inside of a class. 
-        self.name = name    # This are instance variables. (Argument)
+    # Method: A method is just a function inside of a class.
+     # Dunder Init method: The __init__ method is meant to initialize specific objects from a class (blueprint/template).This is what lets us create multiple objects(instances) of our class.
+    def __init__(self, name, house):
+        # This are instance variables(Arguments). Self here refers to specific objects, it helps to create instance variables for all the objects(instances) that we create using this class.
+        self.name = name    
         self.house = house
     
     def __str__(self):              
         return f"{self.name} from {self.house}"
 
-    @property
+    # These are instance methods. As this methods have a scope over all the objects of this particular class.
+    @property        
     def name(self):
         return self._name
 
@@ -18,8 +22,8 @@ class Student(): # By Convention the 1st letter of the name of the class is in u
             raise ValueError("Missing Name")
         self._name = name
     
-    # Decorators: Functions that modify the behaviour of other functions. 
-    @property       # Getter: A getter is a function for some class that gets some value. Using a getter and setter enables python to automatically detect when we are trying to manually set a value.
+    #Decorators: Functions that modify the behaviour of other functions. 
+    @property       # Getter: A getter is an instance method. A getter is a method for some class that gets some value. Using a getter and setter enables python to automatically detect when we are trying to manually set a value.
     def house(self):
         return self._house
     
