@@ -11,38 +11,17 @@ class Student(): # By Convention the 1st letter of the name of the class is in u
     def __str__(self):              
         return f"{self.name} from {self.house}"
 
-    # These are instance methods. As this methods have a scope over all the objects of this particular class.
-    @property        
-    def name(self):
-        return self._name
+    @classmethod # This is a classmethod. We don't need to create an instance of this class to be able to use this method.
+    def get(cls):
+        name = input("Name: ")
+        house = input("House: ")
+        return cls(name, house)
+    # Total Encapsulation can be seen here. As all the code that is reated to creating a student object and performing functions on it is encoded in the Student class.
 
-    @name.setter
-    def name(self, name):
-        if not name:
-            raise ValueError("Missing Name")
-        self._name = name
-    
-    #Decorators: Functions that modify the behaviour of other functions. 
-    @property       # Getter: A getter is an instance method. A getter is a method for some class that gets some value. Using a getter and setter enables python to automatically detect when we are trying to manually set a value.
-    def house(self):
-        return self._house
-    
-    @house.setter   # Setter: A setter is a function in some class that sets some value.
-    def house(self, house):
-        if house not in ['Gryffindor','Hufflepuff','Ravenclaw','Slytherin']:
-            raise ValueError("Invalid house")
-        self._house = house
 
 def main():
-    student = get_student()
-    # student.house = 'Kolkata'
+    student = Student.get()
     print(student)
-
-
-def get_student():
-    name = input("Name: ")
-    house = input("House: ")
-    return Student(name, house) # Constructo call: This is the line of code that is going to instantiate a student object using the student class that holds the blueprint of creating student objects.
 
 
 if __name__ == '__main__':
